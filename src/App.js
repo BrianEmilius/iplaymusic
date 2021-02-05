@@ -15,17 +15,20 @@ function App() {
     <TokenContext.Provider value={tokenState}>
       <div className="app">
         <Router>
-          {(function() {
-            if (tokenState[0]) {
-              return (
-                <>
-                  <Featured path="/featured" />
-                  <Playlists path="/playlists" />
-                  <Player path="/player" />
-                </>
-              )
-            }
-          }())}
+          {
+            (function() {
+              if (tokenState[0]?.access_token) {
+                return (
+                  <>
+                    <Featured path="/featured" />
+                    <Playlists path="/playlists" />
+                    <Playlists path="/playlists/:id" />
+                    <Player path="/player" />
+                  </>
+                );
+              }
+            }())
+          }
           <Login default />
           <Callback path="/callback" />
         </Router>

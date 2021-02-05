@@ -3,8 +3,6 @@ import { useContext, useEffect, useState } from "react";
 import Drawer from "../components/Drawer";
 import FeaturedCard from "../components/FeaturedCard";
 import NavBar from "../components/NavBar";
-import Page from "../components/Page";
-import PageHeading from "../components/PageHeading";
 import TokenContext from "../contexts/TokenContext";
 
 export default function Featured() {
@@ -22,15 +20,15 @@ export default function Featured() {
 
 	return (
 		<>
-		<NavBar>Featured</NavBar>
-		<Page>
-			<PageHeading>Featured</PageHeading>
+		<NavBar title="Featured"/>
+		<div style={{position: "absolute", inset: "120px 2rem 4rem", overflowY: "scroll"}}>
 			{content?.map(item => <FeaturedCard
 				key={item.id}
 				image={item.images[0].url}
 				album={item.name}
-				genre={item.type} />)}
-		</Page>
+				genre={item.type}
+				id={item.id} />)}
+		</div>
 		<Drawer />
 		</>
 	)

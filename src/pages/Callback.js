@@ -8,16 +8,18 @@ export default function Callback(props) {
 	var [token, setToken] = useContext(TokenContext);
 
 	var code = new URLSearchParams(props.location.search).get("code");
+	var state = new URLSearchParams(props.location.search).get("state");
 
 	useEffect(function() {
 		axios.post("/.netlify/functions/token", JSON.stringify({
-			code
+			code,
+			state
 		}))
 		.then(response => {
 			setToken(response.data);
 			navigate("/featured");
 		});
-	}, [setToken, code]);
+	}, [setToken, code, state]);
 
 	return null;
 }

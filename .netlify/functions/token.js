@@ -1,9 +1,13 @@
-const { default: axios } = require("axios");
+var { default: axios } = require("axios");
+var cookie = require("cookie");
 
 exports.handler = async function(event, context) {
 	if(event.httpMethod !== "POST") return { statusCode: 405, body: "" }
 
+	var cookies = cookie.parse(event.headers.cookie);
 	var body = JSON.parse(event.body);
+
+	if (body.state !== cookies.state) return { statusCode: 403, body: "" }
 
 	var authOptions = {
 		url: "https://accounts.spotify.com/api/token",

@@ -1,14 +1,19 @@
 import "./NavBar.scss";
+import PageHeading from "./PageHeading";
 
-export default function NavBar({children, transparent, bgImg}) {
+export default function NavBar({children, light, title, transparent, bgImg}) {
 	return (
-		<nav className={`navbar ${transparent ? "navbar--transparent" : "navbar--solid"}`}>
+		<header className="appHeader">
 			{bgImg && <img src={bgImg} alt="" className="navbar__bgImg" />}
-			<button onClick={() => window.history.back()} className="navbar__button">
-				<i className="icon-left-open"></i>
-			</button>
+			<nav className={`navbar ${transparent ? "navbar--transparent" : "navbar--solid"}`}>
+				<button onClick={() => window.history.back()} className="navbar__button">
+					<i className="icon-left-open"></i>
+				</button>
+				{title}
+				<i className="icon-search"></i>
+			</nav>
+			<PageHeading light={light}>{title}</PageHeading>
 			{children}
-			<i className="icon-search"></i>
-		</nav>
+		</header>
 	)
 }
