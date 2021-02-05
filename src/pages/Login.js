@@ -12,7 +12,7 @@ export default function Login() {
 		response_type: "code",
 		client_id: "e734fb09ce11423e8ec459d526ceb050",
 		scope: "streaming user-read-private user-read-email user-library-read playlist-read-private playlist-read-collaborative",
-		redirect_uri: window.location.href.includes("iplaymusic") ? "https://iplaymusic-brian.netlify.app/" : "http://localhost:8888/callback",
+		redirect_uri: window.location.href.includes("iplaymusic") ? "https://iplaymusic-brian.netlify.app/callback" : "http://localhost:8888/callback",
 		state
 	});
 
