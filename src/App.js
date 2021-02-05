@@ -1,4 +1,3 @@
-import './App.scss';
 import { Router } from "@reach/router";
 import Featured from "./pages/Featured";
 import Playlists from './pages/Playlists';
