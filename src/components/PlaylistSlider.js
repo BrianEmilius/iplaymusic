@@ -20,10 +20,10 @@ export default function PlaylistSlider() {
 
 	return (
 		<SliderContext.Provider value={sliderState}>
-			<div>
-				{playlists.map(list=><PlaylistSliderItem image={list.images[0].url} name={list.name} id={list.id} />)}
-			</div>
-			<p>{sliderState[0]?.title}</p>
+			<ul className="slider">
+				{playlists.map(list=><PlaylistSliderItem key={list.id} image={list.images[0].url} name={list.name} id={list.id} />)}
+			</ul>
+			<p style={{fontSize: "2rem", fontWeight: "700", textAlign: "center", margin: "0"}}>{sliderState[0]?.title}</p>
 		</SliderContext.Provider>
-	)
+	);
 }

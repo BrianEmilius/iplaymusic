@@ -1,15 +1,16 @@
 @import "../variables";
 
+.appHeader {
+	z-index: 100;
+	padding: 0 2rem;
+}
+
 .navbar {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
 	height: 3rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0 2rem;
+	//padding: 0 2rem;
 	box-sizing: border-box;
 	font-weight: 200;
 	text-transform: uppercase;

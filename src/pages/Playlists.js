@@ -1,7 +1,5 @@
 import NavBar from "../components/NavBar";
 import Drawer from "../components/Drawer";
-import Page from "../components/Page";
-import PageHeading from "../components/PageHeading";
 import { useContext, useEffect, useState } from "react";
 import TokenContext from "../contexts/TokenContext";
 import axios from "axios";
@@ -24,16 +22,15 @@ export default function Playlists(props) {
 
 	return (
 		<>
-			<NavBar transparent bgImg="./images/sound-wave.png">Playlists</NavBar>
-			<Page>
-				<PageHeading>Playlists</PageHeading>
+			<NavBar title="Playlists" light={true} transparent bgImg="./images/sound-wave.png">
 				<PlaylistSlider />
-
+			</NavBar>
+			<div style={{position: "absolute", inset: "310px 2rem 4rem", overflowY: "scroll"}}>
 				<ul className="trackList">
 					{tracks.items?.map(({track})=><Track key={track.id} id={track.id} artist={track.artists[0].name} title={track.name} duration={track.duration_ms}/>)}
 				</ul>
 
-			</Page>
+			</div>
 			<Drawer />
 		</>
 	);
