@@ -11,8 +11,8 @@ export default function Login() {
 	var options = querystring.stringify({
 		response_type: "code",
 		client_id: "e734fb09ce11423e8ec459d526ceb050",
-		scope: "user-read-private user-read-email user-library-read playlist-read-private playlist-read-collaborative",
-		redirect_uri: "http://localhost:8888/callback",
+		scope: "streaming user-read-private user-read-email user-library-read playlist-read-private playlist-read-collaborative",
+		redirect_uri: window.location.href.includes("iplaymusic") ? "https://iplaymusic-brian.netlify.app/callback" : "http://localhost:8888/callback",
 		state
 	});
 
