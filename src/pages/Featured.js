@@ -24,7 +24,7 @@ export default function Featured() {
 
 	return (
 		<>
-			<NavBar title="Featured" />
+			<NavBar title="Pølsehorn" />
 			<div
 				style={{
 					position: "absolute",
