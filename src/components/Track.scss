@@ -18,9 +18,9 @@
 			overflow: hidden;
 			max-width: 240px;
 			text-overflow: ellipsis;
-
 		}
-		.item__artist, .item__duration {
+		.item__artist,
+		.item__duration {
 			font-weight: 200;
 			margin: 0;
 		}

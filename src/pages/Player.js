@@ -4,7 +4,9 @@ import "./Player.scss";
 export default function Player() {
 	return (
 		<>
-			<NavBar transparent light>Playing</NavBar>
+			<NavBar transparent light>
+				Playing
+			</NavBar>
 			<div className="player">
 				<img src="https://picsum.photos/600/800" alt="" className="player__bgImg" />
 				<div className="player__artist">
@@ -14,11 +16,17 @@ export default function Player() {
 					<div>
 						<input type="range" />
 					</div>
-					<button><i className="icon-previous"></i></button>
-					<button><i className="icon-play"></i></button>
-					<button><i className="icon-next"></i></button>
+					<button>
+						<i className="icon-previous"></i>
+					</button>
+					<button>
+						<i className="icon-play"></i>
+					</button>
+					<button>
+						<i className="icon-next"></i>
+					</button>
 				</div>
 			</div>
 		</>
-	)
+	);
 }
