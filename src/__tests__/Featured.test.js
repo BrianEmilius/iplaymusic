@@ -6,7 +6,7 @@ import TokenContext from "../contexts/TokenContext";
 afterEach(cleanup);
 jest.mock("axios");
 
-describe("Featured Page", function () {
+describe("Featured Page", async function () {
 	var response = {
 		data: {
 			playlists: {

@@ -24,7 +24,7 @@ export default function Featured() {
 
 	return (
 		<>
-			<NavBar title="Fnyf" />
+			<NavBar title="Featured" />
 			<div
 				style={{
 					position: "absolute",
