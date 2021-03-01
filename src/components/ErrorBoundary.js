@@ -1,5 +1,5 @@
 // src/components/ErrorBoundary.js
-import { Link, Redirect } from "@reach/router";
+import { Link } from "@reach/router";
 import { Component } from "react";
 
 class ErrorBoundary extends Component {
