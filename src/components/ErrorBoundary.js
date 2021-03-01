@@ -7,8 +7,7 @@ class ErrorBoundary extends Component {
 		super(props);
 
 		this.state = {
-			hasError: false,
-			redirect: false,
+			hasError: false
 		};
 	}
 
@@ -20,24 +19,14 @@ class ErrorBoundary extends Component {
 		console.error("ErrorBoundary caught an error", error, info);
 	}
 
-	componentDidUpdate() {
-		if (this.state.hasError) {
-			setTimeout(() => this.setState({ redirect: true }), 5000);
-		}
-	}
-
 	render() {
-		if (this.state.redirect) {
-			return <Redirect to="/playlists" />;
-		}
-
 		if (this.state.hasError) {
 			return (
 				<>
 					<h1>Oops, there was an error</h1>
 					<p>Something went wrong, please try again later.</p>
 					<p>
-						<Link to="/playlists">Click here</Link> or wait 5 seconds to be redirected.
+						<Link to="/featured">Click here</Link> to go to home.
 					</p>
 				</>
 			);

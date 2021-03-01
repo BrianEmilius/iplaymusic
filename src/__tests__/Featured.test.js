@@ -18,7 +18,7 @@ describe("Featured Page", async function () {
 								url: "https://via.placeholder.com/600",
 							},
 						],
-						name: "Pølsehorn",
+						name: "Rock On",
 						type: "playlist",
 					},
 					{
@@ -54,7 +54,7 @@ describe("Featured Page", async function () {
 		});
 
 		await waitFor(function () {
-			var text = screen.getByText(/pølsehorn/i);
+			var text = screen.getByText(/rock on/i);
 			expect(text).toBeInTheDocument();
 		});
 	});
