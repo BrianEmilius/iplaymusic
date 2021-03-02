@@ -1,6 +1,6 @@
 // src/components/ErrorBoundary.js
-import { Link } from "@reach/router";
 import { Component } from "react";
+import axios from "axios";
 
 class ErrorBoundary extends Component {
 	constructor(props) {
@@ -17,17 +17,18 @@ class ErrorBoundary extends Component {
 
 	componentDidCatch(error, info) {
 		console.error("ErrorBoundary caught an error", error, info);
+		/* axios.post("/.netlify/functions/error-logging", {
+			error: JSON.stringify(error),
+			info
+		})
+			.then(response => console.log(response)); */
 	}
-
+	
 	render() {
 		if (this.state.hasError) {
 			return (
 				<>
-					<h1>Oops, there was an error</h1>
-					<p>Something went wrong, please try again later.</p>
-					<p>
-						<Link to="/featured">Click here</Link> to go to home.
-					</p>
+					<p>The playlist could not be generated. Try again later.</p>
 				</>
 			);
 		}

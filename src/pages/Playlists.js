@@ -5,6 +5,7 @@ import TokenContext from "../contexts/TokenContext";
 import axios from "axios";
 import Track from "../components/Track";
 import PlaylistSlider from "../components/PlaylistSlider";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 export default function Playlists(props) {
 	var [token] = useContext(TokenContext);
@@ -29,25 +30,27 @@ export default function Playlists(props) {
 			<NavBar title="Playlists" light={true} transparent bgImg="./images/sound-wave.png">
 				<PlaylistSlider />
 			</NavBar>
-			<div
-				style={{
-					position: "absolute",
-					inset: "310px 2rem 4rem",
-					overflowY: "scroll",
-				}}
-			>
-				<ul className="trackList">
-					{tracks.items?.map(({ track }) => (
-						<Track
-							key={track.id}
-							id={track.id}
-							artist={track.artists[0].name}
-							title={track.name}
-							duration={track.duration_ms}
-						/>
-					))}
-				</ul>
-			</div>
+			<ErrorBoundary>
+				<div
+					style={{
+						position: "absolute",
+						inset: "310px 2rem 4rem",
+						overflowY: "scroll",
+					}}
+				>
+					<ul className="trackList">
+						{tracks.items?.map(({ track }) => (
+							<Track
+								key={track.id}
+								id={track.id}
+								artist={track.artists[0].name}
+								title={track.name}
+								duration={track.duration_ms}
+							/>
+						))}
+					</ul>
+				</div>
+			</ErrorBoundary>
 			<Drawer />
 		</>
 	);

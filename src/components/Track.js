@@ -5,7 +5,7 @@ import "./Track.scss";
 export default function Track({ title, artist, duration, id }) {
 	return (
 		<li className="trackList__item" onClick={() => navigate(`/player/${id}`)}>
-			<Link to={`/player/${id}`} className="item__playBtn">
+			<Link href={`/player/${id}`} className="item__playBtn">
 				<i className="icon-play"></i>
 			</Link>
 			<div>
