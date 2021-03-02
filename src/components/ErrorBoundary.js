@@ -7,15 +7,20 @@ class ErrorBoundary extends Component {
 		super(props);
 
 		this.state = {
-			hasError: false
+			error: null,
+			info: null
 		};
 	}
 
-	static getDerivedStateFromError() {
+	/* static getDerivedStateFromError() {
 		return { hasError: true };
-	}
+	} */
 
 	componentDidCatch(error, info) {
+		this.setState({
+			error,
+			info
+		});
 		if (process.env.NODE_ENV === "production") {
 			axios.post("/.netlify/functions/error-logging", {
 				error,
@@ -27,7 +32,7 @@ class ErrorBoundary extends Component {
 	}
 	
 	render() {
-		if (this.state.hasError) {
+		if (this.state.error) {
 			return (
 				<>
 					<p>The playlist could not be generated. Try again later.</p>
