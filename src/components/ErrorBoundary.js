@@ -1,6 +1,6 @@
 // src/components/ErrorBoundary.js
 import { Component } from "react";
-//import axios from "axios";
+import axios from "axios";
 
 class ErrorBoundary extends Component {
 	constructor(props) {
@@ -16,12 +16,14 @@ class ErrorBoundary extends Component {
 	}
 
 	componentDidCatch(error, info) {
+		if (process.env.NODE_ENV === "production") {
+			axios.post("/.netlify/functions/error-logging", {
+				error: JSON.stringify(error),
+				info
+			});
+			return;
+		}
 		console.error("ErrorBoundary caught an error", error, info);
-		/* axios.post("/.netlify/functions/error-logging", {
-			error: JSON.stringify(error),
-			info
-		})
-			.then(response => console.log(response)); */
 	}
 	
 	render() {

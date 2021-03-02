@@ -8,7 +8,7 @@ Sentry.init({
 
 exports.handler = function(event, context) {
 	var body = JSON.parse(event.body);
-	console.log(body)
+
 	var transaction = Sentry.startTransaction();
 	Sentry.captureMessage(body.error);
 	transaction.finish();
