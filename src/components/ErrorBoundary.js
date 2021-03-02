@@ -18,8 +18,8 @@ class ErrorBoundary extends Component {
 	componentDidCatch(error, info) {
 		if (process.env.NODE_ENV === "production") {
 			axios.post("/.netlify/functions/error-logging", {
-				error,
-				info
+				error: e,
+				info: t
 			});
 			return;
 		}
