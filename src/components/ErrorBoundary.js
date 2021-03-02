@@ -21,14 +21,12 @@ class ErrorBoundary extends Component {
 			error,
 			info
 		});
-		if (process.env.NODE_ENV === "production") {
-			axios.post("/.netlify/functions/error-logging", {
-				error,
-				info
-			});
-			return;
-		}
-		console.error("ErrorBoundary caught an error", error, info);
+		
+		axios.post("/.netlify/functions/error-logging", {
+			error,
+			info
+		});
+		//console.error("ErrorBoundary caught an error", error, info);
 	}
 	
 	render() {
