@@ -4,8 +4,7 @@ import TokenContext from "../contexts/TokenContext";
 import { navigate } from "@reach/router";
 
 export default function Callback(props) {
-	// eslint-disable-next-line
-	var [token, setToken] = useContext(TokenContext);
+	var setToken = useContext(TokenContext)[1];
 
 	var code = new URLSearchParams(props.location.search).get("code");
 	var state = new URLSearchParams(props.location.search).get("state");

@@ -5,7 +5,6 @@ import TokenContext from "../contexts/TokenContext";
 import axios from "axios";
 import Track from "../components/Track";
 import PlaylistSlider from "../components/PlaylistSlider";
-import ErrorBoundary from "../components/ErrorBoundary";
 
 export default function Playlists(props) {
 	var [token] = useContext(TokenContext);
@@ -30,7 +29,6 @@ export default function Playlists(props) {
 			<NavBar title="Playlists" light={true} transparent bgImg="./images/sound-wave.png">
 				<PlaylistSlider />
 			</NavBar>
-			<ErrorBoundary>
 				<div
 					style={{
 						position: "absolute",
@@ -50,7 +48,6 @@ export default function Playlists(props) {
 						))}
 					</ul>
 				</div>
-			</ErrorBoundary>
 			<Drawer />
 		</>
 	);
