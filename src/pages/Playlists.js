@@ -10,18 +10,16 @@ export default function Playlists(props) {
 	var [token] = useContext(TokenContext);
 	var [tracks, setTracks] = useState({});
 
-	useEffect(
-		function () {
-			if (props.id)
-				axios
-					.get("https://api.spotify.com/v1/playlists/" + props.id + "/tracks", {
-						headers: {
-							Authorization: "Bearer " + token.access_token,
-						},
-					})
-					.then(response => setTracks(response.data));
-		},
-		[token, props.id, setTracks]
+	// this is a friggin comment, yo!
+	useEffect(function() {
+		if (props.id)
+		axios.get("https://api.spotify.com/v1/playlists/" + props.id + "/tracks", {
+			headers: {
+				"Authorization": "Bearer " + token.access_token
+			}
+		})
+			.then(response => setTracks(response.data));
+	}, [token, props.id, setTracks]);
 	);
 
 	return (
