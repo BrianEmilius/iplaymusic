@@ -18,7 +18,8 @@
 	&--transparent {
 		background: transparent;
 	}
-	&--solid, &--light {
+	&--solid,
+	&--light {
 		background-color: white;
 		color: black;
 	}

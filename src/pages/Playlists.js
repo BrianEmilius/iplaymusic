@@ -20,18 +20,32 @@ export default function Playlists(props) {
 		})
 			.then(response => setTracks(response.data));
 	}, [token, props.id, setTracks]);
+	);
 
 	return (
 		<>
 			<NavBar title="Playlists" light={true} transparent bgImg="./images/sound-wave.png">
 				<PlaylistSlider />
 			</NavBar>
-			<div style={{position: "absolute", inset: "310px 2rem 4rem", overflowY: "scroll"}}>
-				<ul className="trackList">
-					{tracks.items?.map(({track})=><Track key={track.id} id={track.id} artist={track.artists[0].name} title={track.name} duration={track.duration_ms}/>)}
-				</ul>
-
-			</div>
+				<div
+					style={{
+						position: "absolute",
+						inset: "310px 2rem 4rem",
+						overflowY: "scroll",
+					}}
+				>
+					<ul className="trackList">
+						{tracks.items?.map(({ track }) => (
+							<Track
+								key={track.id}
+								id={track.id}
+								artist={track.artists[0].name}
+								title={track.name}
+								duration={track.duration_ms}
+							/>
+						))}
+					</ul>
+				</div>
 			<Drawer />
 		</>
 	);

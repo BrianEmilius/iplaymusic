@@ -1,7 +1,7 @@
 import "./NavBar.scss";
 import PageHeading from "./PageHeading";
 
-export default function NavBar({children, light, title, transparent, bgImg}) {
+export default function NavBar({ children, light, title, transparent, bgImg }) {
 	return (
 		<header className="appHeader">
 			{bgImg && <img src={bgImg} alt="" className="navbar__bgImg" />}
@@ -15,5 +15,5 @@ export default function NavBar({children, light, title, transparent, bgImg}) {
 			<PageHeading light={light}>{title}</PageHeading>
 			{children}
 		</header>
-	)
+	);
 }
